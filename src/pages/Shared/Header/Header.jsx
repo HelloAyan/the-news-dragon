@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../../assets/logo.png';
 import moment from 'moment';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
 
 const Header = () => {
@@ -14,11 +14,31 @@ const Header = () => {
             </div>
 
             <div className='d-flex bg-light p-2'>
-                <Button variant="danger">Danger</Button>
+                <Button variant="danger" className='rounded-0'>Latest</Button>
                 <Marquee className='text-danger' speed={70}>
                     <span> <strong>Match Highlights :  </strong> </span> &nbsp; Germany  vs Spain — as it happened   !   Match Highlights: Germany vs Spain as... Match Highlights: Germany vs Spain as...
                 </Marquee>
             </div>
+
+            <Navbar collapseOnSelect expand="lg" bg='white' variant='white'>
+                <Container className='p-0'>
+
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mx-auto">
+                            <Nav.Link href="#features">Home</Nav.Link>
+                            <Nav.Link href="#pricing">About</Nav.Link>
+                            <Nav.Link href="#pricing">Career</Nav.Link>
+                        </Nav>
+                        <Nav>
+                            <Nav.Link href="#deets" className='d-flex align-items-center'>Profile</Nav.Link>
+                            <Nav.Link eventKey={2} href="#memes">
+                                <Button variant="secondary" className='mx-0 rounded-0'>Secondary</Button>
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </Container>
     )
 }
