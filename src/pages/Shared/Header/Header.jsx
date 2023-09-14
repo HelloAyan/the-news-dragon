@@ -6,7 +6,7 @@ import Marquee from 'react-fast-marquee';
 
 const Header = () => {
     return (
-        <Container>
+        <Container className='mt-4'>
             <div className="text-center">
                 <img src={logo} alt="Logo Image" />
                 <p className='text-secondary'><small>Journalism Without Fear or Favor</small></p>
@@ -33,7 +33,7 @@ const Header = () => {
                         <Nav>
                             <Nav.Link href="#deets" className='d-flex align-items-center'>Profile</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
-                                <Button variant="secondary" className='mx-0 rounded-0'>Secondary</Button>
+                                <Button variant="secondary" className='mx-0 rounded-0'>Login</Button>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
