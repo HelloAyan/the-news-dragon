@@ -2,6 +2,7 @@ import {
     createBrowserRouter,
     Navigate,
     RouterProvider,
+    Routes,
     useLoaderData,
 } from "react-router-dom";
 import Main from "../layouts/Main";
@@ -12,6 +13,7 @@ import News from "../pages/News/News/News";
 import LoginLayout from "../layouts/LoginLayout";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -48,12 +50,12 @@ const router = createBrowserRouter([
     },
 
     {
-        path: '/news',
+        path: 'news',
         element: <NewsLayout></NewsLayout>,
         children: [
             {
                 path: ':id',
-                element: <News></News>,
+                element: <PrivateRoutes> <News></News></PrivateRoutes>,
                 loader: ({ params }) => fetch(`https://the-news-dragon-server-helloayan-ayan-ahmed-rabbis-projects.vercel.app/news/${params.id}`)
             }
         ]
