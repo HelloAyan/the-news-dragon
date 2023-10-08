@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ':id',
-                element: <PrivateRoutes> <News></News></PrivateRoutes>,
+                element: <PrivateRoutes><News></News> </PrivateRoutes>,
                 loader: ({ params }) => fetch(`https://the-news-dragon-server-helloayan-ayan-ahmed-rabbis-projects.vercel.app/news/${params.id}`)
             }
         ]
