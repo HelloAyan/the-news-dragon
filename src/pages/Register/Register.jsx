@@ -1,11 +1,12 @@
 import React from 'react'
 import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = event => {
         event.preventDefault();
@@ -21,6 +22,9 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
+                navigate('/login');
+
+                console.log('navigate is working');
             })
             .catch(error => {
                 console.log(error);

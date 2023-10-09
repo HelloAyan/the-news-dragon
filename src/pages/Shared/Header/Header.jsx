@@ -1,14 +1,19 @@
 import React from 'react';
 import logo from '../../../assets/logo.png';
 import moment from 'moment';
-import { Container, Button, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Container, Button, Navbar, Nav, NavDropdown, Spinner } from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
 import NavigationBar from '../NavigationBar/NavigationBar';
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 
 const Header = () => {
 
+    const { loading } = useContext(AuthContext);
+
     return (
+
         <Container className='mt-4'>
             <div className="text-center">
                 <img src={logo} alt="Logo Image" />
@@ -23,7 +28,8 @@ const Header = () => {
                 </Marquee>
             </div>
 
-            <NavigationBar ></NavigationBar>
+            {loading ? <h2>Loading</h2> : <NavigationBar />}
+
         </Container>
     )
 }
