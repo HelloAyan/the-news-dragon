@@ -3,13 +3,20 @@ import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { useState } from 'react';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [accept, setAccept] = useState(false);
+    const [register, setRegister] = useState(false);
 
     const handleRegister = event => {
         event.preventDefault();
+        if (register) {
+            return;
+        }
+
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
@@ -18,17 +25,27 @@ const Register = () => {
         const accept = form.accept.value;
         console.log(name, photo, email, password, accept);
 
+
+
         createUser(email, password)
             .then(result => {
+                setRegister(true);
                 const createdUser = result.user;
                 console.log(createdUser);
+                form.reset();
                 navigate('/login');
-
                 console.log('navigate is working');
+                setRegister(false);
+                console.log('Registration complete.');
             })
             .catch(error => {
                 console.log(error);
             })
+    }
+
+    const handleChecked = event => {
+        console.log(accept);
+        setAccept(event.target.checked);
     }
 
     return (
@@ -57,13 +74,15 @@ const Register = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Accept Terms & Condition" name='accept' />
+                    <Form.Check onClick={handleChecked}
+                        type="checkbox"
+                        label="Accept Terms & Condition"
+                        name='accept' />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Register
+                <Button variant="primary" type="submit" disabled={!accept || register}>
+                    {register ? 'Registering...' : 'Register'}
                 </Button>
-
                 <Form.Group className='mt-2'>
                     <Form.Text className="text-success">
                         Already have an account? <Link to={'/login'} >Login </Link>

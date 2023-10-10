@@ -17,6 +17,7 @@ const Login = () => {
         const email = form.email.value;
         console.log(email, password);
 
+
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
