@@ -19,11 +19,17 @@ const LeftNav = () => {
         <div>
             <h5>All Category</h5>
 
-            <div className='ps-4'>
+            <div className='pt-4' style={{ width: '90%', height: '30px' }}>
                 {categories.map(category =>
-                    <p key={category.id} className='active'>
-                        <NavLink to={`/category/${category.id}`} className='text-decoration-none '>{category.name}</NavLink>
-                    </p>
+                    <div key={category.id} className={({ isActive, isPending }) =>
+                        isActive
+                            ? "active"
+                            : isPending
+                                ? "pending"
+                                : ""
+                    }>
+                        <div className='category-item-name'><NavLink to={`/category/${category.id}`} className='text-decoration-none ps-4 '>{category.name}</NavLink></div>
+                    </div>
                 )}
 
             </div>

@@ -1,7 +1,26 @@
 .active {
-    color: #BB2D3B !important;
+    color: white !important;
+    background-color: #5C636A;
 
 }
+
+.category-item-name {
+    width: 100%;
+    height: auto;
+}
+
+.category-item-name a {
+    width: 85%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.category-item-name a:not(.active):hover {
+    color: #BB2D3B;
+    background-color: #e4e0e0;
+}
+
 
 .category-item {
     color: skyblue;
