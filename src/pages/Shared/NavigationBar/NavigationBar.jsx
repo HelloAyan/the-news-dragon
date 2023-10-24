@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
@@ -25,9 +25,10 @@ const NavigationBar = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Nav.Link href="#pricing"><Link to={'/'}>Home</Link></Nav.Link>
-                            <Nav.Link href="#pricing">About</Nav.Link>
-                            <Nav.Link href="#pricing">Career</Nav.Link>
+                            <NavLink to={'/'}>Home</NavLink>
+                            <NavLink >About</NavLink>
+                            <NavLink >Contact</NavLink>
+
                         </Nav>
                         <Nav>
                             {user && <Nav.Link href="#deets" className='d-flex align-items-center'>
