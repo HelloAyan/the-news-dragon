@@ -28,7 +28,7 @@ const Header = () => {
                 </Marquee>
             </div>
 
-            {loading ? <h2>Loading</h2> : <NavigationBar />}
+            {loading ? (<h2 className='text-center'>Loading</h2>) : (<NavigationBar />)}
 
         </Container>
     )
