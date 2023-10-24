@@ -14,6 +14,8 @@ import LoginLayout from "../layouts/LoginLayout";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import Contact from "../pages/Contact/Contact";
+import About from "../pages/About/About";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +34,15 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'contact',
+                element: <Contact></Contact>,
+            },
+
+            {
+                path: 'about',
+                element: <About></About>
             }
         ]
     },
@@ -59,7 +70,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://the-news-dragon-server-helloayan-ayan-ahmed-rabbis-projects.vercel.app/news/${params.id}`)
             }
         ]
-    }
+    },
+
+
+
 
 ]);
 
