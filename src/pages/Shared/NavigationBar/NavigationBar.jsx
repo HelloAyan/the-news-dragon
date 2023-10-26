@@ -31,9 +31,9 @@ const NavigationBar = () => {
 
                         </Nav>
                         <Nav>
-                            {user && <Nav.Link href="#deets" className='d-flex align-items-center'>
-                                <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-                            </Nav.Link>
+                            {user && <div className='d-flex align-items-center'>
+                                {user.photoURL ? <img src={user.photoURL} style={{ width: '40px', height: '40px', borderRadius: '50%' }} /> : <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>}
+                            </div>
                             }
                             <Nav.Link eventKey={2} href="#memes">
                                 {user ?
