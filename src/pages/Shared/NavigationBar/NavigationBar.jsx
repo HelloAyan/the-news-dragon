@@ -6,7 +6,11 @@ import { useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 
 const NavigationBar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, signIn } = useContext(AuthContext);
+
+
+    console.log('email user singIn info: ', signIn);
+
 
     const handleLogout = () => {
         logOut()

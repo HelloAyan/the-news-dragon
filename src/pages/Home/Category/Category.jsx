@@ -14,23 +14,16 @@ const Category = () => {
     return (
         <> {
             loading ? (
-                <h2 className='text-center'>Loading news...</h2>
+                <h3 className='text-center'>Loading news...</h3>
             ) : (
                 <div>
-                    {categoryNews ? (
-                        <>
-                            {
-                                categoryNews.map(news => <NewsCard
-                                    key={news._id}
-                                    news={news}>
-                                </NewsCard>)
-                            }
-                        </>
-                    ) : (
-                        <>
-                            <div>Loading...</div>
-                        </>
-                    )}
+                    {
+                        categoryNews.map(news => <NewsCard
+                            key={news._id}
+                            news={news}>
+                        </NewsCard>)
+                    }
+
                 </div>
             )
         }
