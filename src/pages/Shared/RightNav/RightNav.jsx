@@ -10,13 +10,13 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 
 const RightNav = () => {
-    const { googleSignIn } = useContext(AuthContext);
+    const { googleSignIn, githubSignIn } = useContext(AuthContext);
     return (
         <div>
             <div>
                 <h5>Login With</h5>
                 <Button variant="outline-primary" className='mb-2' onClick={googleSignIn} > <FaGoogle /> Login with Google</Button>
-                <Button variant="outline-secondary"> <FaGithub /> Login with Github</Button>
+                <Button variant="outline-secondary" onClick={githubSignIn}> <FaGithub /> Login with Github</Button>
             </div>
 
             <div className='mt-4'>

@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, getRedirectResult, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, getRedirectResult, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/Firebase.config';
 
 export const AuthContext = createContext(null)
@@ -8,6 +8,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const provider = new GoogleAuthProvider();
+    const providerGithub = new GithubAuthProvider();
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -38,6 +39,22 @@ const AuthProvider = ({ children }) => {
             })
     }
 
+    const githubSignIn = () => {
+        signInWithPopup(auth, providerGithub)
+            .then((result) => {
+                const credential = GithubAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+                console.log('github user : ', user);
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                const email = error.customData.email;
+                const credential = GithubAuthProvider.credentialFromError(error);
+            });
+    }
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (loggedUser) => {
             console.log('Logged user inside auth state observer', loggedUser);
@@ -55,6 +72,7 @@ const AuthProvider = ({ children }) => {
         signIn,
         logOut,
         googleSignIn,
+        githubSignIn,
     };
     return (
         <AuthContext.Provider value={authInfo}>
