@@ -32,7 +32,7 @@ const NavigationBar = () => {
                         </Nav>
                         <Nav>
                             {user && <div className='d-flex align-items-center'>
-                                <div className='px-2 text-primary fs-6'>Welcome, {user.displayName.split(' ')[0]}</div> {user.photoURL ? <img src={user.photoURL} style={{ width: '40px', height: '40px', borderRadius: '50%' }} /> : <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>}
+                                <div className='px-2 text-primary fs-6'>Welcome, {user.displayName ? user.displayName.split(' ')[0] : ''} </div> {user.photoURL ? <img src={user.photoURL} style={{ width: '40px', height: '40px', borderRadius: '50%' }} /> : <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>}
                             </div>
                             }
                             <Nav.Link eventKey={2} href="#memes">
