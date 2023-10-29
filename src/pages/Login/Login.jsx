@@ -3,12 +3,14 @@ import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import useTitle from '../../hook/useTitle';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const redirectHome = location.state?.from?.pathname || '/';
+    useTitle('Login');
 
     const handleSignIn = (event) => {
         event.preventDefault();
