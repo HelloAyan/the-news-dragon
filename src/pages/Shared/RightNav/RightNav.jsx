@@ -24,6 +24,13 @@ const RightNav = () => {
         setLoading(false); // Hide loading indicator when the response is received
     };
 
+    const bgImage = {
+        backgroundImage: `url(${bg})`,
+        backgroundSize: 'cover',
+        width: '100%',
+        height: 'auto',
+    };
+
     return (
         <div>
             <div>
@@ -55,8 +62,10 @@ const RightNav = () => {
 
             <Qzone></Qzone>
 
-            <div className='mt-4'>
-                <img src={bg} alt="" />
+            <div className='my-4' style={bgImage}>
+                <div className='text-light fs-2 text-center p-2'>Create an Amazing Newspaper</div>
+                <div className='text-light fs-6 text-center p-4'>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</div>
+                <div className='text-center p-5'> <Button variant="danger" className='p-2 fs-5'>Learn More</Button> </div>
             </div>
         </div>
     )
