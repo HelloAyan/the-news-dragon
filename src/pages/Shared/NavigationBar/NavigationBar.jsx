@@ -28,10 +28,10 @@ const NavigationBar = () => {
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mx-auto">
-                            <NavLink to={'/'} className='px-2 text-decoration-none'>Home</NavLink>
-                            <NavLink to={'/about'} className='px-2 text-decoration-none' >About</NavLink>
-                            <NavLink to={'/contact'} className='px-2 text-decoration-none' >Contact</NavLink>
+                        <Nav className="mx-auto ">
+                            <NavLink to={'/'} className='px-2 text-decoration-none fs-5'>Home</NavLink>
+                            <NavLink to={'/about'} className='px-2 text-decoration-none fs-5' >About</NavLink>
+                            <NavLink to={'/contact'} className='px-2 text-decoration-none fs-5' >Contact</NavLink>
 
                         </Nav>
                         <Nav>

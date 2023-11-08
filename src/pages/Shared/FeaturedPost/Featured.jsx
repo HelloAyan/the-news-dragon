@@ -24,8 +24,36 @@ const Featured = () => {
     }, [])
     return (
         <div>
-            <Card >
+            <Card className='mb-4' >
                 <Card.Img variant="top" src={img1} />
+                <Card.Body>
+                    <Card.Title>Bayern Slams Authorities Over Flight Delay to Club World Cup</Card.Title>
+                    <Card.Text className='pt-3'>
+                        <div className='d-flex justify-content-between'>
+                            <div className='fs-6 fw-semibold'>Sports</div>
+                            <div> <FaRegCalendar></FaRegCalendar> <span>Jan 4, 2022</span> </div>
+                        </div>
+
+                    </Card.Text>
+
+                </Card.Body>
+            </Card>
+            <Card className='mb-4'>
+                <Card.Img variant="top" src={img2} />
+                <Card.Body>
+                    <Card.Title>Bayern Slams Authorities Over Flight Delay to Club World Cup</Card.Title>
+                    <Card.Text className='pt-3'>
+                        <div className='d-flex justify-content-between'>
+                            <div className='fs-6 fw-semibold'>Sports</div>
+                            <div> <FaRegCalendar></FaRegCalendar> <span>Jan 4, 2022</span> </div>
+                        </div>
+
+                    </Card.Text>
+
+                </Card.Body>
+            </Card>
+            <Card >
+                <Card.Img variant="top" src={img3} />
                 <Card.Body>
                     <Card.Title>Bayern Slams Authorities Over Flight Delay to Club World Cup</Card.Title>
                     <Card.Text className='pt-3'>

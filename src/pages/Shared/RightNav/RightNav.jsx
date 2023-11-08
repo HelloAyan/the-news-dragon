@@ -6,6 +6,7 @@ import Qzone from '../Qzone/Qzone';
 import bg from '../../../assets/bg.png'
 import { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { Link } from 'react-router-dom';
 
 
 const RightNav = () => {
@@ -54,9 +55,9 @@ const RightNav = () => {
             <div className='mt-4'>
                 <h5>Find Us On</h5>
                 <ListGroup>
-                    <ListGroup.Item> <FaFacebookF /> Facebook</ListGroup.Item>
-                    <ListGroup.Item> <FaTwitter /> Twitter</ListGroup.Item>
-                    <ListGroup.Item> <FaInstagram /> Instagram</ListGroup.Item>
+                    <ListGroup.Item> <Link to={'https://fb.com'} className="text-decoration-none"> <FaFacebookF /> Facebook</Link> </ListGroup.Item>
+                    <ListGroup.Item> <Link to={'https://fb.com'} className="text-decoration-none"> <FaTwitter /> Twitter </Link> </ListGroup.Item>
+                    <ListGroup.Item> <Link to={'https://fb.com'} className="text-decoration-none"> <FaInstagram /> Instagram </Link> </ListGroup.Item>
                 </ListGroup>
             </div>
 
