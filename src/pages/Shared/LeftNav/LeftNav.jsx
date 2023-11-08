@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../../../App.css';
+import Featured from '../FeaturedPost/Featured';
 
 
 const LeftNav = () => {
@@ -16,25 +17,30 @@ const LeftNav = () => {
 
     console.log(categories);
     return (
-        <div>
-            <h5>All Category</h5>
+        <>
+            <div className='pb-5'>
+                <h5>All Category</h5>
 
-            <div className='pt-4' style={{ width: '90%', height: '30px' }}>
-                {categories.map(category =>
-                    <div key={category.id} className={({ isActive, isPending }) =>
-                        isActive
-                            ? "active"
-                            : isPending
-                                ? "pending"
-                                : ""
-                    }>
-                        <div className='category-item-name'><NavLink to={`/category/${category.id}`} className='text-decoration-none ps-4 '>{category.name}</NavLink></div>
-                    </div>
-                )}
+                <div className='pt-4' style={{ width: '90%', height: 'auto' }}>
+                    {categories.map(category =>
+                        <div key={category.id} className={({ isActive, isPending }) =>
+                            isActive
+                                ? "active"
+                                : isPending
+                                    ? "pending"
+                                    : ""
+                        }>
+                            <div className='category-item-name'><NavLink to={`/category/${category.id}`} className='text-decoration-none ps-4 '>{category.name}</NavLink></div>
+                        </div>
+                    )}
 
+                </div>
+            </div>
+            <div>
+                <Featured></Featured>
             </div>
 
-        </div>
+        </>
 
     )
 }
